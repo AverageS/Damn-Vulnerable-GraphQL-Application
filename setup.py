@@ -98,7 +98,9 @@ def pump_db():
   paste.owner = owner
   paste.ip_addr = random_address()
   paste.user_agent = random_useragent()
-  db.session.commit()
+  db.session.add(owner)
+  db.session.add(paste)
+
 
 
   for _ in range(0, 10):
