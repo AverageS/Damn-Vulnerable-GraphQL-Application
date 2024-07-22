@@ -89,6 +89,17 @@ def pump_db():
   db.session.add(paste)
 
   db.session.commit()
+  owner = Owner(name="Tedda")
+  paste = Paste()
+  paste.title = "Defbox Note"
+  paste.content = "quick trip back to Tennessee for the weekend!"
+  paste.public = True
+  paste.owner_id = owner.id
+  paste.owner = owner
+  paste.ip_addr = random_address()
+  paste.user_agent = random_useragent()
+  db.session.commit()
+
 
   for _ in range(0, 10):
     owner = Owner(name=random_owner())
